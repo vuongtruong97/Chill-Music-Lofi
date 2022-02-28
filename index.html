@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lofi Chill Clone</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./resources/css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="main">
+        <video
+          class="background_video background_video_default"
+          autoplay
+          muted
+          loop
+          src="./resources/video/BDR Day-Christmas ver.mp4"
+          type="video/mp4"
+        ></video>
+        <header class="header">
+          <div class="header__left">
+            <img
+              class="header__icon"
+              src="https://lofi.co/static/media/logo.0cbf9e63.gif"
+            />
+          </div>
+          <div class="header__navigation">
+            <ul class="navigation__list">
+              <li class="navigation__item"><a href="#">How its works</a></li>
+              <li class="navigation__item"><a href="#">Upgrade</a></li>
+              <li class="navigation__item"><a href="#">Contact Us</a></li>
+              <li class="navigation__item navigation__item__more">
+                <a href="#">More</a>
+                <ul class="item__more-listChild">
+                  <li class="item__more-child"><a href="#">About Us</a></li>
+                  <li class="item__more-child">
+                    <a href="#">Submissions</a>
+                  </li>
+                  <li class="item__more-child"><a href="#">Spotify</a></li>
+                </ul>
+              </li>
+              <li class="navigation__item"><a href="#">Merch</a></li>
+            </ul>
+          </div>
+          <div class="header__action">
+            <div class="header__action__item">
+              <label class="switch action__item__switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="header__action__item">
+              <img
+                class="acction__item__fullscreen"
+                src="	https://lofi.co/static/media/fullscreen.a76b5d15.svg"
+                alt=""
+              />
+            </div>
+            <div class="header__action__item">
+              <img
+                class="action__item__user"
+                src="https://lofi.co/static/media/profile.089e0074.svg"
+                alt=""
+              />
+            </div>
+            <div class="header__action__item">
+              <button class="action__item__share">Share</button>
+            </div>
+          </div>
+        </header>
+        <aside class="option"></aside>
+        <div class="player"></div>
+        <div class="popover__action popover__action--traffic">
+          <div class="popover__action__head">
+            <div class="popover__action__circle">
+              <div class="circle-child"></div>
+              <div class="popover__action__body">
+                <span>City Traffic</span>
+                <div class="slider--range__container">
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="40"
+                    class="slider--range popover__action--range"
+                    id="city__traffic"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="popover__action popover__action--rain">
+          <div class="popover__action__head">
+            <div class="popover__action__circle">
+              <div class="circle-child"></div>
+              <div class="popover__action__body">
+                <span>City Rain</span>
+                <div class="slider--range__container">
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="30"
+                    class="slider--range popover__action--range"
+                    id="city__rain"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./resources/js/main.js"></script>
+  </body>
+</html>
