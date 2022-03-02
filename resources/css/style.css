@@ -386,3 +386,6 @@ input:checked + .slider:before {
   padding: 20px;
   color: var(--color-default);
 }
+.test {
+  display: flex;
+}
