@@ -32,14 +32,27 @@
   <body>
     <div class="wrapper">
       <div class="main">
-        <video
-          class="background_video background_video_default"
-          autoplay
-          muted
-          loop
-          src="./resources/video/BDR Day-Christmas ver.mp4"
-          type="video/mp4"
-        ></video>
+        <div class="video__background">
+          <video
+            class="background_video background_video_day"
+            autoplay
+            muted
+            loop
+            src="./resources/video/BDR Day-Christmas ver.mp4"
+            type="video/mp4"
+          ></video>
+          <video
+            class="background_video background_video_night"
+            autoplay
+            muted
+            loop
+            src="./resources/video/BDR STARRY NIGHT - Christmas ver.mp4"
+            type="video/mp4"
+          ></video>
+        </div>
+        <div class="audio">
+          <audio src="./resources/music/chill1.mp3"></audio>
+        </div>
         <header class="header">
           <div class="header__left">
             <img
@@ -68,7 +81,7 @@
           <div class="header__action">
             <div class="header__action__item">
               <label class="switch action__item__switch">
-                <input type="checkbox" />
+                <input class="switch-btn" type="checkbox" checked />
                 <span class="slider round"></span>
               </label>
             </div>
@@ -239,31 +252,64 @@
               <div class="option__item__menu__child">
                 <div class="option__item__menu__title">Focus Mode</div>
                 <div class="option__item__menu--focus__section">
-                  <div class="focus__section__icon"><i class="fa-solid fa-circle-play"></i></div>
+                  <div class="focus__section__icon">
+                    <i class="fa-solid fa-circle-play"></i>
+                  </div>
                   <div class="focus__section__name">Start Session</div>
-                  <div class="focus__section__status"><i class="fa-solid fa-lock"></i></div>
+                  <div class="focus__section__status">
+                    <i class="fa-solid fa-lock"></i>
+                  </div>
                 </div>
                 <div class="option__item__menu--focus__section">
-                  <div class="focus__section__icon"><i class="fa-solid fa-stopwatch"></i></div>
+                  <div class="focus__section__icon">
+                    <i class="fa-solid fa-stopwatch"></i>
+                  </div>
                   <div class="focus__section__name">Timers and Tasks</div>
-                  <div class="focus__section__status"><i class="fa-solid fa-lock"></i></div>
+                  <div class="focus__section__status">
+                    <i class="fa-solid fa-lock"></i>
+                  </div>
                 </div>
                 <div class="option__item__menu--focus__section">
-                  <div class="focus__section__icon"><i class="fa-solid fa-table-list"></i></div>
+                  <div class="focus__section__icon">
+                    <i class="fa-solid fa-table-list"></i>
+                  </div>
                   <div class="focus__section__name">Notes</div>
-                  <div class="focus__section__status"><i class="fa-solid fa-lock"></i></div>
+                  <div class="focus__section__status">
+                    <i class="fa-solid fa-lock"></i>
+                  </div>
                 </div>
                 <div class="option__item__menu--focus__section">
-                  <div class="focus__section__icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                  <div class="focus__section__icon">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                  </div>
                   <div class="focus__section__name">History</div>
-                  <div class="focus__section__status"><i class="fa-solid fa-lock"></i></div>
+                  <div class="focus__section__status">
+                    <i class="fa-solid fa-lock"></i>
+                  </div>
                 </div>
-
               </div>
             </div>
           </div>
         </aside>
-        <div class="player"></div>
+        <div class="player">
+          <div class="player__infor">
+            <span class="player__title">Music by - lofi.co 2021</span>
+          </div>
+          <div class="player__control">
+            <div class="player__control__btn previous__btn">
+              <img src="./resources/image/previous.3b347466.svg" alt="" />
+            </div>
+            <div class="player__control__btn play__btn active">
+              <img src="./resources/image/play.18d46dd9.svg" alt="" />
+            </div>
+            <div class="player__control__btn pause__btn">
+              <img src="./resources/image/pause.4ac70926.svg" alt="" />
+            </div>
+            <div class="player__control__btn next__btn">
+              <img src="./resources/image/next.9551d6f2.svg" alt="" />
+            </div>
+          </div>
+        </div>
         <div class="popover__action popover__action--traffic">
           <div class="popover__action__head">
             <div class="popover__action__circle">

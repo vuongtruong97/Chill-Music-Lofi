@@ -10,6 +10,7 @@ body::-webkit-scrollbar {
 html {
   font-family: "Poppins", sans-serif;
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 a {
   text-decoration: none;
@@ -27,9 +28,25 @@ ul li {
   /* overflow: hidden; */
 }
 /* Web video background */
+
 .background_video {
-  width: 100%;
+  position: fixed;
+  object-fit: cover;
+  min-width: 100vw;
+  min-height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  transition: opacity linear 0.8s;
+  z-index: 2;
 }
+.background_video_night {
+  /* opacity: 0; */
+  z-index: 1;
+}
+.audio {
+  display: none;
+}
+
 /* Header */
 .header {
   display: flex;
@@ -570,7 +587,7 @@ input:checked + .slider:before {
   width: 100%;
 }
 .option__item__menu--focus {
-  padding:  10px 16px;
+  padding: 10px 16px;
   width: 300px;
 }
 .option__item__menu--focus__section {
@@ -579,12 +596,12 @@ input:checked + .slider:before {
   background-color: var(--color-bg-200);
   height: 44px;
   border-radius: 1rem;
-  align-items:center;
+  align-items: center;
   justify-content: space-between;
   padding: 8px 8px 8px 16px;
   margin-bottom: 12px;
 }
-.focus__section__icon{
+.focus__section__icon {
   margin-right: 20px;
   font-size: 2.5rem;
   color: var(--color-icon);
@@ -592,8 +609,55 @@ input:checked + .slider:before {
 .focus__section__status {
   font-size: 2rem;
   color: var(--color-icon);
-
 }
 .option__item__menu--focus__section .focus__section__name {
   flex: 1;
+}
+/* Player Footer */
+.player {
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  padding: 32px;
+  background-color: transparent;
+}
+.player__title {
+  position: absolute;
+  left: 100px;
+  font-size: 1.3rem;
+  color: #bebebe;
+  top: 50%;
+  transform: translateY(-50%);
+  user-select: none;
+}
+.player__control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.player__control__btn {
+  padding: 10px;
+  cursor: pointer;
+}
+.player__control__btn:hover {
+  transition: opacity linear 0.2s;
+  opacity: 0.5;
+}
+.previous__btn,
+.next__btn {
+  transform: scale(1.5);
+}
+
+.pause__btn,
+.play__btn {
+  display: none;
+}
+.player__control__btn.active {
+  display: block;
 }
