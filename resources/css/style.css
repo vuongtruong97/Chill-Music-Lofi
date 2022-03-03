@@ -323,7 +323,7 @@ input:checked + .slider:before {
 /* Side Option Item */
 .option {
   position: fixed;
-  z-index: 6;
+  z-index: 100;
   top: 50%;
   right: 30px;
   transform: translateY(-50%);
@@ -375,7 +375,8 @@ input:checked + .slider:before {
   background-color: #fff;
   position: absolute;
   right: 100%;
-  top: -50%;
+  top: -200%;
+  z-index: 100;
   background-color: var(--color-option-menu);
   color: var(--color-default);
   overflow: hidden;
@@ -413,11 +414,7 @@ input:checked + .slider:before {
   align-items: center;
 }
 .menu__mood__style {
-<<<<<<< HEAD
-  display:flex;
-=======
   display: flex;
->>>>>>> c6a7a5d658884c40c97f09dfdcb03b6d75f529ab
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -562,9 +559,41 @@ input:checked + .slider:before {
   display: none;
 }
 .option__item__menu__set-selector {
+  opacity: 0.5;
   height: 190px;
   width: 100%;
 }
+.option__item__menu__set-selector.active {
+  opacity: 1;
+}
 .option__item__menu__set-selector img {
   width: 100%;
+}
+.option__item__menu--focus {
+  padding:  10px 16px;
+  width: 300px;
+}
+.option__item__menu--focus__section {
+  display: flex;
+  font-size: 1.6rem;
+  background-color: var(--color-bg-200);
+  height: 44px;
+  border-radius: 1rem;
+  align-items:center;
+  justify-content: space-between;
+  padding: 8px 8px 8px 16px;
+  margin-bottom: 12px;
+}
+.focus__section__icon{
+  margin-right: 20px;
+  font-size: 2.5rem;
+  color: var(--color-icon);
+}
+.focus__section__status {
+  font-size: 2rem;
+  color: var(--color-icon);
+
+}
+.option__item__menu--focus__section .focus__section__name {
+  flex: 1;
 }
