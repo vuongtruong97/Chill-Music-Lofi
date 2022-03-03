@@ -96,26 +96,79 @@
             <div class="option__item__icon">
               <i class="fa-solid fa-sliders"></i>
             </div>
-            <div class="option__item__menu">
+            <div class="option__item__menu option__item__menu--mood">
               <div class="option__item__menu__child">
                 <div class="option__item__menu__title">Mood</div>
-              <div class="option__item__menu_mood">
-                <div class="menu__mood__style">
-                  <div class="menu__mood__styel__item"></div>
-                  <div class="menu__mood__styel__item"></div>
-                  <div class="menu__mood__styel__item"></div>
+                <div class="option__item__menu_mood">
+                  <div class="menu__mood__style">
+                    <div class="menu__mood__style__item">
+                      <div class="style__item__icon">
+                        <i class="fa-solid fa-moon"></i>
+                        <span class="style__item__name">Sleep</span>
+                      </div>
+                    </div>
+                    <div class="menu__mood__style__item">
+                      <div class="style__item__icon">
+                        <i class="fa-solid fa-guitar"></i>
+                        <span class="style__item__name">Jazzy</span>
+                      </div>
+                    </div>
+                    <div class="menu__mood__style__item">
+                      <div class="style__item__icon active">
+                        <i class="fa-solid fa-mug-hot"></i>
+                        <span class="style__item__name">Chill</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="menu__mood__volume">
+                    <div class="mood__volume__icon">
+                      <i class="fa-solid fa-volume-off"></i>
+                    </div>
+                    <input
+                      type="range"
+                      min="1"
+                      max="100"
+                      class="slider--range slider--range__mood"
+                    />
+                    <div class="mood__volume__icon">
+                      <i class="fa-solid fa-volume-high"></i>
+                    </div>
+                  </div>
                 </div>
-                <div class="menu__mood__volume">
-                  <input type="range" min="1" max="100">
-                </div>                
-              </div>
               </div>
               <div class="option__item__menu__child">
                 <div class="option__item__menu__title">Background Noises</div>
                 <div class="option__item__menu__noise">
-                  <input type="range" min="1" max="100"  value="0" class="menu__noise__item">
-                  <input type="range"  min="1" max="100"  value="0" class="menu__noise__item">
-                  <input type="range"  min="1" max="100"  value="0" class="menu__noise__item">
+                  <div class="slider-range__option-menu">
+                    <span class="slider-range-title">City Traffic</span>
+                    <input
+                      type="range"
+                      min="1"
+                      max="100"
+                      value="0"
+                      class="slider--range menu__noise__item traffic-vol"
+                    />
+                  </div>
+                  <div class="slider-range__option-menu">
+                    <span class="slider-range-title">City Rain</span>
+                    <input
+                      type="range"
+                      min="1"
+                      max="100"
+                      value="0"
+                      class="slider--range menu__noise__item city-rain-vol"
+                    />
+                  </div>
+                  <div class="slider-range__option-menu">
+                    <span class="slider-range-title">Fireplace</span>
+                    <input
+                      type="range"
+                      min="1"
+                      max="100"
+                      value="0"
+                      class="slider--range menu__noise__item fire-place-vol"
+                    />
+                  </div>
                 </div>
               </div>
               <div class="option__item__menu__footer">
@@ -127,19 +180,66 @@
             <div class="option__item__icon">
               <i class="fa-solid fa-seedling"></i>
             </div>
-            <div class="option__item__menu">Playlist</div>
+            <div class="option__item__menu option__item__menu--playlist">
+              <div class="option__item__menu__child">
+                <div class="option__item__menu__title">Playlist</div>
+                <div class="item__menu__playlist">
+                  <div class="menu__playlist--item">
+                    <img src="./resources/image/chill.svg" alt="" />
+                  </div>
+                  <div class="menu__playlist--item">
+                    <img src="./resources/image/focus.svg" alt="" />
+                  </div>
+                  <div class="menu__playlist--item">
+                    <img src="./resources/image/sleep.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="option__item__menu__child">
+                <div class="option__item__menu__title">Templates</div>
+                <span
+                  >You haven't saved any template yet, open the mixer to save
+                  one.</span
+                >
+              </div>
+            </div>
           </div>
           <div class="option__item">
             <div class="option__item__icon">
               <i class="fa-solid fa-brush"></i>
             </div>
-            <div class="option__item__menu">Change set</div>
+            <div class="option__item__menu option__item__menu--set">
+              <div class="menu--set__scrool">
+                <div class="option__item__menu__child">
+                  <div class="option__item__menu__title">Change Set</div>
+                  <div class="option__item__menu__set-selector">
+                    <img src="./resources/image/chill.6d5d8ab2.png" alt="" />
+                  </div>
+                  <div class="option__item__menu__set-selector">
+                    <img src="./resources/image/cafe-set.588fc661.png" alt="" />
+                  </div>
+                  <div class="option__item__menu__set-selector">
+                    <img src="./resources/image/cottage.0229b098.png" alt="" />
+                  </div>
+                  <div class="option__item__menu__set-selector">
+                    <img
+                      src="./resources/image/forest-set.9d2b0160.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="option__item">
             <div class="option__item__icon">
               <i class="fa-solid fa-carrot"></i>
             </div>
-            <div class="option__item__menu">Focus Mode</div>
+            <div class="option__item__menu">
+              <div class="option__item__menu__child">
+                <div class="option__item__menu__title">Focus Mode</div>
+              </div>
+            </div>
           </div>
         </aside>
         <div class="player"></div>
