@@ -592,7 +592,6 @@ input:checked + .slider:before {
 .focus__section__status {
   font-size: 2rem;
   color: var(--color-icon);
-
 }
 .option__item__menu--focus__section .focus__section__name {
   flex: 1;
