@@ -24,3 +24,11 @@
     rgba(31, 28, 43, 0)
   );
 }
+@media screen and (max-width: 400px) {
+  .header__navigation {
+    display: none;
+  }
+  .player__title {
+    display: none;
+  }
+}

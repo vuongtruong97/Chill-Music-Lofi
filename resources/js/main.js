@@ -3,6 +3,7 @@ const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 const element = document.documentElement;
+const audio = $("#audio");
 const fullScreenBtn = $(".acction__item__fullscreen");
 const listOptionItem = $$(".option__item");
 const optionMenu = $(".option");
@@ -10,25 +11,202 @@ const optionMenuItem = $$(".option__item__menu ");
 const switchBtn = $(".switch-btn");
 const playBtn = $(".play__btn");
 const pauseBtn = $(".pause__btn");
-const song = $("audio");
+const nextBtn = $(".next__btn");
+const previousBtn = $(".previous__btn");
+const volumeSlider = $(".slider--range__audio");
+const mainSong = $(".main-audio");
+const mixVol = $$(".menu__noise__item");
+const mixSound = $$(".mix-sound");
+const menuMood = $(".menu__mood__style");
+const cityTraffic = $(".city-traffic");
+const cityRain = $(".city-rain");
+const firePlace = $(".fire-place");
+const keyBoard = $(".keyboard");
+const dayVideo = $(".background_video_day");
+const nightVideo = $(".background_video_night");
+const webFront = $(".background_video--front");
 
 // MAIN OBJECT
 const lofiMusic = {
   // Flag Variables
   isPlay: false,
-  isRain: false,
-  isTraffic: false,
-  isMute: false,
-  chillMood: true,
-  jazzyMood: false,
-  sleepMood: false,
+  currentIndex: 0,
+  currentTime: "day",
+  currentWeather: "sun",
+  currentMood: "chill", // mood default
+  // Song(fake API)
+  songs: {
+    jazz: [
+      {
+        name: "jazz 1",
+        singer: "null",
+        path: "./resources/music/jazz1.mp3",
+        image: "null",
+      },
+      {
+        name: "jazz 2",
+        singer: "null",
+        path: "./resources/music/jazz2.mp3",
+        image: "null",
+      },
+      {
+        name: "jazz 3",
+        singer: "null",
+        path: "./resources/music/jazz3.mp3",
+        image: "null",
+      },
+    ],
+    sleepy: [
+      {
+        name: "sleepy 1",
+        singer: "null",
+        path: "./resources/music/sleepy1.mp3",
+        image: "null",
+      },
+      {
+        name: "sleepy 2",
+        singer: "null",
+        path: "./resources/music/sleepy2.mp3",
+        image: "null",
+      },
+      {
+        name: "sleepy 3",
+        singer: "null",
+        path: "./resources/music/sleepy3.mp3",
+        image: "null",
+      },
+      {
+        name: "sleepy 4",
+        singer: "null",
+        path: "./resources/music/sleepy4.mp3",
+        image: "null",
+      },
+    ],
+    chill: [
+      {
+        name: "chill 1",
+        singer: "null",
+        path: "./resources/music/chill1.mp3",
+        image: "null",
+      },
+      {
+        name: "chill 2",
+        singer: "null",
+        path: "./resources/music/chill2.mp3",
+        image: "null",
+      },
+      {
+        name: "chill 3",
+        singer: "null",
+        path: "./resources/music/chill3.mp3",
+        image: "null",
+      },
+    ],
+  },
+  videoBackgrounds: {
+    rain: [
+      {
+        name: "Rain-Day",
+        path: "./resources/video/BDR RAINY DAY - Christmas ver.mp4",
+      },
+      {
+        name: "Rain-Night",
+        path: "./resources/video/BDR RAINY NIGHT - Christmas ver.mp4",
+      },
+    ],
+    clear: [
+      {
+        name: "Clear-Day",
+        path: "./resources/video/BDR Day-Christmas ver.mp4",
+      },
+      {
+        name: "Clear-Night",
+        path: "./resources/video/BDR STARRY NIGHT - Christmas ver.mp4",
+      },
+    ],
+  },
+  // DefineProperties
+  defineProperties: function () {
+    Object.defineProperty(this, "currentSong", {
+      get: function () {
+        if (this.currentMood === "chill") {
+          return this.songs.chill[this.currentIndex];
+        }
+        if (this.currentMood === "jazz") {
+          return this.songs.jazz[this.currentIndex];
+        }
+        if (this.currentMood === "sleep") {
+          return this.songs.sleepy[this.currentIndex];
+        }
+      },
+    });
+    Object.defineProperty(this, "currentLength", {
+      get: function () {
+        if (this.currentMood === "chill") {
+          return this.songs.chill.length;
+        }
+        if (this.currentMood === "jazz") {
+          return this.songs.jazz.length;
+        }
+        if (this.currentMood === "sleep") {
+          return this.songs.sleepy.length;
+        }
+      },
+    });
+    Object.defineProperty(this, "weatherMode", {
+      get: function () {
+        if (this.currentWeather == "sun") {
+          return this.videoBackgrounds.clear;
+        } else {
+          return this.videoBackgrounds.rain;
+        }
+      },
+    });
+  },
   //Render Web
-  render: function () {
-    console.log("render web");
+  renderSong: function () {
+    this.loadCurrentSong();
+  },
+  renderBg: function () {
+    this.loadCurrentBg();
   },
   //Handle Events
   handleEvents: function () {
     const _this = this;
+    // When click webFront
+    webFront.onclick = function (e) {
+      e.stopPropagation();
+      listOptionItem.forEach((item) => {
+        if (item.classList.contains("active")) {
+          item.classList.remove("active");
+        }
+      });
+    };
+    // When change music mood
+    menuMood.onclick = function (e) {
+      _this.pauseAudio();
+      const listMoodBtn = $$(".style__item__icon");
+      listMoodBtn.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+      if (e.target.closest(".jazz-mood")) {
+        _this.currentMood = "jazz";
+        e.target.closest(".jazz-mood").classList.add("active");
+      }
+      if (e.target.closest(".sleep-mood")) {
+        _this.currentMood = "sleep";
+        e.target.closest(".sleep-mood").classList.add("active");
+      }
+      if (e.target.closest(".chill-mood")) {
+        _this.currentMood = "chill";
+        e.target.closest(".chill-mood").classList.add("active");
+      }
+      _this.currentIndex = 0;
+      _this.renderSong();
+      setTimeout(() => {
+        _this.playAudio();
+      }, 700);
+    };
     // FullScreen
     fullScreenBtn.onclick = function (e) {
       e.stopPropagation();
@@ -70,7 +248,6 @@ const lofiMusic = {
     };
     // Switch background day-night
     switchBtn.onclick = function (e) {
-      const dayVideo = $(".background_video_day");
       e.stopPropagation();
       if (switchBtn.checked) {
         dayVideo.style.opacity = "1";
@@ -87,40 +264,134 @@ const lofiMusic = {
     // Click Play btn
     playBtn.onclick = function (e) {
       e.stopPropagation();
-      if (_this.isPlay === false) {
-        _this.isPlay = true;
-        playBtn.classList.remove("active");
-        pauseBtn.classList.add("active");
-        _this.playAudio();
-      }
+      _this.playAudio();
     };
     // Click Pause btn
     pauseBtn.onclick = (e) => {
       e.stopPropagation();
-      if (_this.isPlay === true) {
-        _this.isPlay = false;
-        playBtn.classList.add("active");
-        pauseBtn.classList.remove("active");
-        _this.pauseAudio();
-      }
+      _this.pauseAudio();
     };
+    // Click next Btn
+    nextBtn.onclick = function () {
+      _this.nextSong();
+    };
+    // Click previous Btn
+    previousBtn.onclick = function () {
+      _this.previousSong();
+    };
+    // When Audio end
+    audio.onended = function () {
+      _this.nextSong();
+    };
+    // Volume adjustment
+    volumeSlider.oninput = function (e) {
+      mainSong.volume = volumeSlider.value / 100;
+    };
+    // Sound Effect adjustment
+    mixSound.forEach((sound) => {
+      sound.loop = true;
+    });
+    mixVol.forEach((vol) => {
+      vol.oninput = function (e) {
+        if (e.target.value > 0) {
+          e.target.classList.add("active");
+          if (e.target.closest(".traffic-vol")) {
+            if (cityTraffic.paused) {
+              cityTraffic.play();
+            }
+            cityTraffic.volume = this.value / 100;
+          }
+          if (e.target.closest(".city-rain-vol")) {
+            if (_this.currentWeather == "sun") {
+              _this.currentWeather = "rain";
+              _this.loadCurrentBg();
+            }
+            if (cityRain.paused) {
+              cityRain.play();
+            }
+            cityRain.volume = this.value / 100;
+          }
+          if (e.target.closest(".fire-place-vol")) {
+            if (firePlace.paused) {
+              firePlace.play();
+            }
+            firePlace.volume = this.value / 100;
+          }
+          if (e.target.closest(".keyboard-vol")) {
+            if (keyBoard.paused) {
+              keyBoard.play();
+            }
+            keyBoard.volume = this.value / 100;
+          }
+        } else {
+          e.target.classList.remove("active");
+          if (e.target.closest(".traffic-vol")) {
+            cityTraffic.pause();
+          }
+          if (e.target.closest(".city-rain-vol")) {
+            cityRain.pause();
+            if (_this.currentWeather == "rain") {
+              _this.currentWeather = "sun";
+              _this.loadCurrentBg();
+            }
+          }
+          if (e.target.closest(".fire-place-vol")) {
+            firePlace.pause();
+          }
+          if (e.target.closest(".keyboard-vol")) {
+            keyBoard.pause();
+          }
+        }
+      };
+    });
+  },
+  loadCurrentSong: function () {
+    audio.src = this.currentSong.path;
+  },
+  loadCurrentBg: function () {
+    dayVideo.src = this.weatherMode[0].path;
+    nightVideo.src = this.weatherMode[1].path;
   },
   playAudio: function () {
-    song.play();
-    console.log("isPlay: ", this.isPlay);
+    if (this.isPlay === false) {
+      this.isPlay = true;
+      playBtn.classList.remove("active");
+      pauseBtn.classList.add("active");
+    }
+    audio.play();
   },
   pauseAudio: function () {
-    song.pause();
-    console.log("isPlay: ", this.isPlay);
+    if (this.isPlay === true) {
+      this.isPlay = false;
+      playBtn.classList.add("active");
+      pauseBtn.classList.remove("active");
+    }
+    audio.pause();
   },
   nextSong: function () {
-    console.log("Next song");
+    this.currentIndex++;
+    if (this.currentIndex >= this.currentLength) {
+      this.currentIndex = 0;
+    }
+    this.loadCurrentSong();
+    setTimeout(() => {
+      this.playAudio();
+    }, 700);
   },
   previousSong: function () {
-    console.log("Previous song");
+    this.currentIndex--;
+    if (this.currentIndex < 0) {
+      this.currentIndex = this.currentLength - 1;
+    }
+    this.loadCurrentSong();
+    setTimeout(() => {
+      this.playAudio();
+    }, 700);
   },
   start: function () {
-    this.render();
+    this.defineProperties();
+    this.renderBg();
+    this.renderSong();
     this.handleEvents();
   },
 };

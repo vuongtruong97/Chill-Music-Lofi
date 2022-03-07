@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lofi Chill Clone</title>
+    <title>lofi chill & focus</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -33,12 +33,13 @@
     <div class="wrapper">
       <div class="main">
         <div class="video__background">
+          <div class="background_video background_video--front"></div>
           <video
             class="background_video background_video_day"
             autoplay
             muted
             loop
-            src="./resources/video/BDR Day-Christmas ver.mp4"
+            src=""
             type="video/mp4"
           ></video>
           <video
@@ -46,12 +47,32 @@
             autoplay
             muted
             loop
-            src="./resources/video/BDR STARRY NIGHT - Christmas ver.mp4"
+            src=""
             type="video/mp4"
           ></video>
         </div>
         <div class="audio">
-          <audio src="./resources/music/chill1.mp3"></audio>
+          <audio class="main-audio" id="audio" src="" preload="auto"></audio>
+          <audio
+            class="mix-sound city-traffic"
+            src="./resources/mix_audio/city_traffic.mp3"
+            preload="auto"
+          ></audio>
+          <audio
+            class="mix-sound city-rain"
+            src="./resources/mix_audio/rain_city.mp3"
+            preload="auto"
+          ></audio>
+          <audio
+            class="mix-sound fire-place"
+            src="./resources/mix_audio/fireplace.mp3"
+            preload="auto"
+          ></audio>
+          <audio
+            class="mix-sound keyboard"
+            src="./resources/mix_audio/keyboard.mp3"
+            preload="auto"
+          ></audio>
         </div>
         <header class="header">
           <div class="header__left">
@@ -115,19 +136,19 @@
                 <div class="option__item__menu_mood">
                   <div class="menu__mood__style">
                     <div class="menu__mood__style__item">
-                      <div class="style__item__icon">
+                      <div class="style__item__icon sleep-mood">
                         <i class="fa-solid fa-moon"></i>
                         <span class="style__item__name">Sleep</span>
                       </div>
                     </div>
                     <div class="menu__mood__style__item">
-                      <div class="style__item__icon">
+                      <div class="style__item__icon jazz-mood">
                         <i class="fa-solid fa-guitar"></i>
                         <span class="style__item__name">Jazzy</span>
                       </div>
                     </div>
                     <div class="menu__mood__style__item">
-                      <div class="style__item__icon active">
+                      <div class="style__item__icon chill-mood active">
                         <i class="fa-solid fa-mug-hot"></i>
                         <span class="style__item__name">Chill</span>
                       </div>
@@ -141,7 +162,7 @@
                       type="range"
                       min="1"
                       max="100"
-                      class="slider--range slider--range__mood"
+                      class="slider--range slider--range__audio"
                     />
                     <div class="mood__volume__icon">
                       <i class="fa-solid fa-volume-high"></i>
@@ -156,7 +177,7 @@
                     <span class="slider-range-title">City Traffic</span>
                     <input
                       type="range"
-                      min="1"
+                      min="0"
                       max="100"
                       value="0"
                       class="slider--range menu__noise__item traffic-vol"
@@ -166,7 +187,7 @@
                     <span class="slider-range-title">City Rain</span>
                     <input
                       type="range"
-                      min="1"
+                      min="0"
                       max="100"
                       value="0"
                       class="slider--range menu__noise__item city-rain-vol"
@@ -176,10 +197,20 @@
                     <span class="slider-range-title">Fireplace</span>
                     <input
                       type="range"
-                      min="1"
+                      min="0"
                       max="100"
                       value="0"
                       class="slider--range menu__noise__item fire-place-vol"
+                    />
+                  </div>
+                  <div class="slider-range__option-menu">
+                    <span class="slider-range-title">Keyboard</span>
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value="0"
+                      class="slider--range menu__noise__item keyboard-vol"
                     />
                   </div>
                 </div>
