@@ -683,3 +683,121 @@ input:checked + .slider:before {
 .player__control__btn.active {
   display: block;
 }
+/* Modal User Manual */
+.modal {
+  position: fixed;
+  z-index: 10000;
+  background-color: var(--color-bg-100);
+  backdrop-filter: blur(20px);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-default);
+}
+.modal .modal__btn--close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  padding: 20px;
+  cursor: pointer;
+}
+.modal__btn--close:hover {
+  opacity: 0.5;
+}
+.modal__item {
+  height: 100vh;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider_title {
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 15px 0;
+  text-align: center;
+  height: 70px;
+}
+.slider_detail {
+  font-size: 1.4rem;
+  line-height: 2.5rem;
+  margin: 10px 0;
+  text-align: center;
+  flex: 1;
+}
+.slider__btn--control {
+  border: none;
+  padding: 9px 40px;
+  background-color: var(--color-primary);
+  font-size: 1.7rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: opacity 0.3s linear;
+}
+.slider__btn--control:hover {
+  opacity: 0.6;
+}
+.slider__btn--leave {
+  cursor: pointer;
+  padding: 20px;
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+}
+.modal__show-slider {
+  width: 350px;
+  height: 350px;
+  background-color: var(--color-clear);
+  border-radius: 3rem;
+  overflow: hidden;
+  padding: 0;
+}
+.slider_list {
+  display: flex;
+  width: auto;
+  flex-direction: row;
+  transition: transform 0.3s linear;
+}
+.slider_item {
+  /* width: 350px;
+  height: 350px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider_item video {
+  width: 350px;
+  height: 350px;
+}
+.slider_item img {
+  object-fit: cover;
+  width: 350px;
+  height: 350px;
+  padding: 80px;
+}
+.slider-index {
+  display: flex;
+}
+.index__item {
+  width: 13px;
+  height: 13px;
+  border-radius: 1rem;
+  background-color: #fff;
+  margin: 10px 5px;
+  cursor: pointer;
+  opacity: 0.4;
+}
+.slider_content {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  height: 300px;
+}
