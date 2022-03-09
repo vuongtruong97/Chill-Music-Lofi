@@ -1,29 +1,20 @@
 "use strict";
-export {
-  //   modal,
-  //   modalControlBtn,
-  //   sliderList,
-  //   sliderItems,
-  //   sliderVideos,
-  //   sliderLength,
-  //   closeModalBtn,
-  //   headerManualBtn,
-  Modal,
-};
+export { modalManual, modalContact };
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
-
+// MODAL MANUAL
 const modal = $(".modal");
 const modalControlBtn = $(".slider__btn--control");
 const sliderList = $(".slider_list");
+const sliderIndexList = $(".slider-index");
 const closeModalBtn = $(".modal__btn--close");
 const leaveBtn = $(".slider__btn--leave");
 const headerManualBtn = $(".navigation__item a:first-child");
 const sliderTitle = $(".slider_title");
 const sliderDetail = $(".slider_detail");
-const sliderIndexList = $(".slider-index");
 const sliderSize = $(".modal__show-slider");
-const Modal = {
+const listIndexItem = sliderIndexList.childNodes;
+const modalManual = {
   currentSlider: 0,
   sliderInfor: [
     {
@@ -71,6 +62,7 @@ const Modal = {
       })
       .join("");
     sliderIndexList.innerHTML = indexItemHtml;
+    sliderIndexList.firstElementChild.classList.add("active");
     sliderTitle.innerHTML = this.sliderInfor[this.currentSlider].title;
     sliderDetail.innerHTML = this.sliderInfor[this.currentSlider].detail;
     sliderList.innerHTML = sliderItemHtml.join("");
@@ -80,7 +72,7 @@ const Modal = {
     // click control btn
     modalControlBtn.onclick = function () {
       _this.nextSlider();
-      _this.changeSliderContent();
+      _this.changeSliderContent(_this.currentSlider);
     };
     // click close btn
     closeModalBtn.onclick = function () {
@@ -94,41 +86,52 @@ const Modal = {
     headerManualBtn.onclick = () => _this.showModal();
     // click slider Index
     sliderIndexList.onclick = (e) => {
-      if (e.target.closest(".index__item")) {
-        let sliderIndex = e.target
-          .closest(".index__item")
-          .getAttribute("data-index");
-        sliderList.style.transform = `translateX(-${
-          sliderSize.clientWidth * sliderIndex
-        }px)`;
+      const elementTarget = e.target.closest(".index__item");
+      if (elementTarget) {
+        const sliderIndex = elementTarget.getAttribute("data-index");
+        _this.currentSlider = sliderIndex;
+        _this.changeSliderPosition(sliderIndex);
+        _this.changeActiveItem(listIndexItem, _this.currentSlider);
+        _this.changeSliderContent(_this.currentSlider);
       }
     };
   },
   nextSlider() {
     const sliderVideos = $$(".slider_item video");
     this.currentSlider++;
-    if (this.currentSlider >= Modal.sliderInfor.length) {
+    if (this.currentSlider >= modalManual.sliderInfor.length) {
       return;
     }
     if (sliderVideos[this.currentSlider - 1]) {
       sliderVideos[this.currentSlider - 1].play();
     }
+    this.changeSliderPosition(this.currentSlider);
+    this.changeActiveItem(listIndexItem, this.currentSlider);
+  },
+  changeSliderPosition(index) {
     sliderList.style.transform = `translateX(-${
-      sliderSize.clientWidth * this.currentSlider
+      sliderSize.clientWidth * index
     }px)`;
+  },
+  changeActiveItem(elements, index) {
+    elements.forEach((e) => {
+      e.classList.remove("active");
+    });
+    elements[index].classList.add("active");
   },
   closeModal: function () {
     sliderList.style.transform = `translateX(0)`;
     this.currentSlider = 0;
-    this.changeSliderContent();
+    this.changeActiveItem(listIndexItem, this.currentSlider);
+    this.changeSliderContent(this.currentSlider);
     modal.style.display = "none";
   },
-  changeSliderContent() {
-    if (this.currentSlider >= Modal.sliderInfor.length) {
+  changeSliderContent(index) {
+    if (this.currentSlider >= modalManual.sliderInfor.length) {
       return;
     }
-    sliderTitle.innerHTML = this.sliderInfor[this.currentSlider].title;
-    sliderDetail.innerHTML = this.sliderInfor[this.currentSlider].detail;
+    sliderTitle.innerHTML = this.sliderInfor[index].title;
+    sliderDetail.innerHTML = this.sliderInfor[index].detail;
   },
   showModal() {
     modal.style.display = "flex";
@@ -138,4 +141,49 @@ const Modal = {
     this.render();
     this.handleEvents();
   },
+};
+
+// MODAL CONTACT
+const closeBtnContact = $(".modal__contact .modal__btn--close");
+const contactContainer = $(".modal__contact__container");
+const contactBtn = $(".navigation__item:nth-child(2) a");
+const modalContact = {
+  events() {
+    closeBtnContact.onclick = function () {
+      contactContainer.style.display = "none";
+    };
+    contactBtn.onclick = () => {
+      contactContainer.style.animation = `fadeIn linear .5s`;
+      contactContainer.style.display = "flex";
+    };
+  },
+  start() {
+    this.events();
+  },
+};
+// MODAL SHARE
+const closeBtnShare = $(".modal__share .modal__btn--close");
+const shareContainer = $(".modal__share");
+const copyBtn = $(".modal__share--btn");
+const showShareModalBtn = $(".action__item__share");
+const shareLinkInput = $(".share__link");
+const modalShareLink = window.location.href;
+export const modalShareEvent = function () {
+  closeBtnShare.onclick = () => {
+    shareContainer.style.display = "none";
+  };
+  showShareModalBtn.onclick = () => {
+    copyBtn.innerHTML = "Copy";
+
+    shareContainer.style.animation = `fadeIn linear .5s`;
+    shareContainer.style.display = "block";
+    shareLinkInput.value = modalShareLink;
+  };
+  copyBtn.onclick = function () {
+    shareLinkInput.value = modalShareLink;
+    shareLinkInput.select();
+    shareLinkInput.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(shareLinkInput.value);
+    copyBtn.innerHTML = "Copied";
+  };
 };

@@ -84,19 +84,34 @@
           <div class="header__navigation">
             <ul class="navigation__list">
               <li class="navigation__item"><a href="#">How its works</a></li>
-              <li class="navigation__item"><a href="#">Upgrade</a></li>
               <li class="navigation__item"><a href="#">Contact Us</a></li>
               <li class="navigation__item navigation__item__more">
                 <a href="#">More</a>
                 <ul class="item__more-listChild">
-                  <li class="item__more-child"><a href="#">About Us</a></li>
                   <li class="item__more-child">
-                    <a href="#">Submissions</a>
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSe9b5QI8zHE6ufCTI735ZSncZ55LE0mWxAhBl2FIiVgOALLYA/viewform"
+                      >Submissions</a
+                    >
                   </li>
-                  <li class="item__more-child"><a href="#">Spotify</a></li>
+                  <li class="item__more-child">
+                    <a href="https://www.instagram.com/lofi/">Instagram</a>
+                  </li>
+                  <li class="item__more-child">
+                    <a href="https://twitter.com/lofidotco">Twitter</a>
+                  </li>
+
+                  <li class="item__more-child">
+                    <a
+                      href="https://open.spotify.com/playlist/0iepisLXvVe5RxB3owHjlj?si=8bce4ca31f5740e8&nd=1"
+                      >Spotify</a
+                    >
+                  </li>
                 </ul>
               </li>
-              <li class="navigation__item"><a href="#">Merch</a></li>
+              <li class="navigation__item">
+                <a href="https://www.shop.lofi.co/">Merch</a>
+              </li>
             </ul>
           </div>
           <div class="header__action">
@@ -136,19 +151,25 @@
                 <div class="option__item__menu_mood">
                   <div class="menu__mood__style">
                     <div class="menu__mood__style__item">
-                      <div class="style__item__icon sleep-mood">
+                      <div
+                        data-mood="sleep"
+                        class="style__item__icon sleep-mood"
+                      >
                         <i class="fa-solid fa-moon"></i>
                         <span class="style__item__name">Sleep</span>
                       </div>
                     </div>
                     <div class="menu__mood__style__item">
-                      <div class="style__item__icon jazz-mood">
+                      <div data-mood="jazz" class="style__item__icon jazz-mood">
                         <i class="fa-solid fa-guitar"></i>
                         <span class="style__item__name">Jazzy</span>
                       </div>
                     </div>
                     <div class="menu__mood__style__item">
-                      <div class="style__item__icon chill-mood active">
+                      <div
+                        data-mood="chill"
+                        class="style__item__icon chill-mood"
+                      >
                         <i class="fa-solid fa-mug-hot"></i>
                         <span class="style__item__name">Chill</span>
                       </div>
@@ -226,7 +247,7 @@
             </div>
             <div class="option__item__menu option__item__menu--playlist">
               <div class="option__item__menu__child">
-                <div class="option__item__menu__title">Playlist</div>
+                <div class="option__item__menu__title">My Playlist</div>
                 <div class="item__menu__playlist">
                   <div class="menu__playlist--item">
                     <img src="./resources/image/chill.svg" alt="" />
@@ -403,6 +424,72 @@
           <span class="slider__btn--leave">Leave Tutorial</span>
         </div>
       </div>
+    </div>
+    <div class="modal__contact__container">
+      <div class="modal__contact">
+        <img
+          src="./resources/image/close.ec10df3e.svg"
+          alt=""
+          class="modal__btn--close"
+        />
+        <h3 class="contact__title">Contact Us</h3>
+        <form action="" id="contact-form">
+          <div class="form-group">
+            <label class="form-label" for="name">Your Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="form-control"
+              placeholder="Cristiano Ronaldo"
+              required
+            />
+            <span class="form-message"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="name">Your Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="form-control"
+              placeholder="Example@email.com"
+              required
+            />
+            <span class="form-message"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="subject">Subject</label>
+            <textarea
+              name="subject"
+              id="subject"
+              cols="30"
+              rows="10"
+              class="form-text"
+            ></textarea>
+          </div>
+          <input class="form-submit slider__btn--control" type="submit" />
+        </form>
+      </div>
+    </div>
+    <div class="modal__share">
+      <img
+        src="./resources/image/close.ec10df3e.svg"
+        alt=""
+        class="modal__btn--close"
+      />
+      <h3 class="share__title">Share</h3>
+      <p class="share__subtitle">
+        Copy the link to share your combination of music, scenery and sounds
+        with your friends!
+      </p>
+      <input
+        type="text"
+        contenteditable="false"
+        placeholder="Click Copy To Share"
+        class="share__link"
+      />
+      <button class="slider__btn--control modal__share--btn">Copy</button>
     </div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"

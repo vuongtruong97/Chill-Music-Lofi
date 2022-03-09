@@ -683,6 +683,8 @@ input:checked + .slider:before {
 .player__control__btn.active {
   display: block;
 }
+/* Modals */
+
 /* Modal User Manual */
 .modal {
   position: fixed;
@@ -698,7 +700,7 @@ input:checked + .slider:before {
   align-items: center;
   color: var(--color-default);
 }
-.modal .modal__btn--close {
+.modal__btn--close {
   position: absolute;
   top: 30px;
   right: 30px;
@@ -732,14 +734,16 @@ input:checked + .slider:before {
   text-align: center;
   flex: 1;
 }
+.form-submit,
 .slider__btn--control {
+  display: block;
   border: none;
   padding: 9px 40px;
   background-color: var(--color-primary);
   font-size: 1.7rem;
   font-weight: 600;
   border-radius: 2rem;
-  margin: 10px 0;
+  margin: 10px auto;
   cursor: pointer;
   transition: opacity 0.3s linear;
 }
@@ -795,9 +799,107 @@ input:checked + .slider:before {
   cursor: pointer;
   opacity: 0.4;
 }
+.index__item.active {
+  opacity: 1;
+}
 .slider_content {
   display: flex;
   flex-direction: column;
   width: 450px;
   height: 300px;
+}
+/* Modal Contact */
+.modal__contact__container {
+  position: fixed;
+  z-index: 10000;
+  background-color: var(--color-bg-100);
+  backdrop-filter: blur(20px);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-default);
+}
+.modal__contact {
+  position: relative;
+  width: 420px;
+  height: 505px;
+  background-color: #000;
+  border-radius: 1.6rem;
+  padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+}
+.contact__title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+  margin-bottom: 13px;
+}
+.form-label {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: var(--color-secondary);
+}
+.form-control,
+.form-text {
+  padding: 12px;
+  font-size: 1.6rem;
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--color-bg-300);
+  color: #fff;
+}
+.form-text {
+  height: 100px;
+  resize: none;
+}
+.modal__share .modal__btn--close,
+.modal__contact .modal__btn--close {
+  top: 0;
+  right: 0;
+}
+/* MOdal Share */
+.modal__share {
+  display: none;
+  position: fixed;
+  z-index: 100005;
+  background-color: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 300px;
+  border-radius: 2rem;
+  padding: 16px;
+}
+.share__title {
+  font-size: 3rem;
+  text-align: center;
+  margin: 0;
+}
+.share__subtitle {
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+  margin-bottom: 30px;
+}
+.share__link {
+  width: 100%;
+  height: 40px;
+  font-size: 1.6rem;
+  outline: none;
+  margin-bottom: 30px;
+  border-radius: 1rem;
+  border: none;
+  padding: 0 16px;
 }

@@ -1,18 +1,11 @@
 "use strict";
-import {
-  // modal,
-  // modalControlBtn,
-  // sliderList,
-  // sliderItems,
-  // sliderVideos,
-  // sliderSize,
-  // sliderLength,
-  // closeModalBtn,
-  // headerManualBtn,
-  Modal,
-} from "./modal.js";
+import { modalManual, modalContact, modalShareEvent } from "./modal.js";
+import { createStorage } from "./globalFunction.js";
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
+
+const STORAGE_KEY = "USER";
+const config = createStorage(STORAGE_KEY);
 
 const element = document.documentElement;
 const audio = $("#audio");
@@ -46,6 +39,28 @@ const lofiMusic = {
   currentTime: "day",
   currentWeather: "sun",
   currentMood: "chill", // mood default
+  createStorage(key) {
+    // create object to save In localStorage default > {}
+    const storeObj = JSON.parse(localStorage.getItem(key)) ?? {};
+    // create function save above object to localstorage with JSON format
+    const save = () => {
+      localStorage.setItem(key, JSON.stringify(storeObj));
+    };
+    const storage = {
+      get(key) {
+        return storeObj[key];
+      },
+      set(key, value) {
+        storeObj[key] = value;
+        save();
+      },
+      remove(key) {
+        delete storeObj[key];
+        save();
+      },
+    };
+    return storage;
+  },
   // Song(fake API)
   songs: {
     jazz: [
@@ -263,27 +278,32 @@ const lofiMusic = {
     // When change music mood
     menuMood.onclick = function (e) {
       _this.pauseAudio();
-      const listMoodBtn = $$(".style__item__icon");
-      listMoodBtn.forEach((btn) => {
-        btn.classList.remove("active");
-      });
-      if (e.target.closest(".jazz-mood")) {
-        _this.currentMood = "jazz";
-        e.target.closest(".jazz-mood").classList.add("active");
+      if (e.target.closest(".menu__mood__style__item")) {
+        const listMoodBtn = $$(".style__item__icon");
+        listMoodBtn.forEach((btn) => {
+          btn.classList.remove("active");
+        });
+        if (e.target.closest(".jazz-mood")) {
+          _this.currentMood = "jazz";
+          e.target.closest(".jazz-mood").classList.add("active");
+          config.set("currentMood", _this.currentMood);
+        }
+        if (e.target.closest(".sleep-mood")) {
+          _this.currentMood = "sleep";
+          e.target.closest(".sleep-mood").classList.add("active");
+          config.set("currentMood", _this.currentMood);
+        }
+        if (e.target.closest(".chill-mood")) {
+          _this.currentMood = "chill";
+          e.target.closest(".chill-mood").classList.add("active");
+          config.set("currentMood", _this.currentMood);
+        }
+        _this.currentIndex = 0;
+        _this.renderSong();
+        setTimeout(() => {
+          _this.playAudio();
+        }, 700);
       }
-      if (e.target.closest(".sleep-mood")) {
-        _this.currentMood = "sleep";
-        e.target.closest(".sleep-mood").classList.add("active");
-      }
-      if (e.target.closest(".chill-mood")) {
-        _this.currentMood = "chill";
-        e.target.closest(".chill-mood").classList.add("active");
-      }
-      _this.currentIndex = 0;
-      _this.renderSong();
-      setTimeout(() => {
-        _this.playAudio();
-      }, 700);
     };
     // FullScreen
     fullScreenBtn.onclick = function (e) {
@@ -423,6 +443,18 @@ const lofiMusic = {
       };
     });
   },
+  // Define Function
+  loadConfig() {
+    this.currentMood = config.get("currentMood");
+    this.currentIndex = 0;
+    const listMoodBtn = $$(".style__item__icon");
+    listMoodBtn.forEach((btn) => {
+      btn.classList.remove("active");
+      if (btn.dataset.mood === this.currentMood) {
+        btn.classList.add("active");
+      }
+    });
+  },
   loadCurrentSong: function () {
     audio.src = this.currentSong.path;
   },
@@ -468,6 +500,7 @@ const lofiMusic = {
   },
   start: function () {
     this.defineProperties();
+    this.loadConfig();
     this.renderBg();
     this.renderSong();
     this.handleEvents();
@@ -475,5 +508,7 @@ const lofiMusic = {
 };
 window.onload = function () {
   lofiMusic.start();
-  Modal.start();
+  modalManual.start();
+  modalContact.start();
+  modalShareEvent();
 };
