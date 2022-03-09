@@ -82,24 +82,24 @@ const lofiMusic = {
         path: "./resources/music/jazz3.mp3",
         image: "null",
       },
-      // {
-      //   path: "https://dl.dropboxusercontent.com/s/oqkmwiybl32jfa7/Enoki%20-%20Matcha.mp3?dl=0",
-      // },
-      // {
-      //   path: "https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/tracks/jazzy/jazzy_7.mp3",
-      // },
-      // {
-      //   path: "https://dl.dropboxusercontent.com/s/n9p4mosvmwye002/let%27s%20chill%20-%20sad.exe.mp3?dl=0",
-      // },
-      // {
-      //   path: "https://dl.dropboxusercontent.com/s/in24imooe9rsu1g/Dimmed%20%28Droemsk%2C%20User67%2C%20Sftspkn%2C%20Jokujekku%29.mp3?dl=0",
-      // },
-      // {
-      //   path: "https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/tracks/jazzy/jazzy_12.mp3",
-      // },
-      // {
-      //   path: "https://dl.dropboxusercontent.com/s/xbnswhsv5d5rsdp/Jazzy%20project%202%20%281%29.mp3?dl=0",
-      // },
+      {
+        path: "https://dl.dropboxusercontent.com/s/oqkmwiybl32jfa7/Enoki%20-%20Matcha.mp3?dl=0",
+      },
+      {
+        path: "https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/tracks/jazzy/jazzy_7.mp3",
+      },
+      {
+        path: "https://dl.dropboxusercontent.com/s/n9p4mosvmwye002/let%27s%20chill%20-%20sad.exe.mp3?dl=0",
+      },
+      {
+        path: "https://dl.dropboxusercontent.com/s/in24imooe9rsu1g/Dimmed%20%28Droemsk%2C%20User67%2C%20Sftspkn%2C%20Jokujekku%29.mp3?dl=0",
+      },
+      {
+        path: "https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/tracks/jazzy/jazzy_12.mp3",
+      },
+      {
+        path: "https://dl.dropboxusercontent.com/s/xbnswhsv5d5rsdp/Jazzy%20project%202%20%281%29.mp3?dl=0",
+      },
     ],
     sleepy: [
       {
@@ -126,33 +126,33 @@ const lofiMusic = {
         path: "./resources/music/sleepy4.mp3",
         image: "null",
       },
-      // {
-      //   path: "https://dl.dropboxusercontent.com/s/dzwd6p0i4xpyltz/Gerardo%20Mill%C3%A1n%20-%20a%20long%20trip%20LLR.mp3?dl=0",
-      // },
-      // {
-      //   path: "https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/tracks/sleepy/sleepy_2.mp3",
-      // },
-      // {
-      //   path: "https://dl.dropboxusercontent.com/s/j3q762jkr6yjttv/Steve%20Nguyen%2C%20Mildred%20-%20Nocturnal%20%28Audio%29.mp3?dl=0",
-      // },
-      // {
-      //   path: "https://dl.dropboxusercontent.com/s/4uh0n2b5qncxi3n/Peace%20-%20Nosmo%2C%20Kioshi%20%28Purity%20Label%29.mp3?dl=0",
-      // },
-      // {
-      //   path: "https://dl.dropboxusercontent.com/s/ro87pkxpgphy9cy/TheAsianOnes%20-%20Lost.mp3?dl=0",
-      // },
-      // {
-      //   path: "https://dl.dropboxusercontent.com/s/3bykoob8z86dn0m/among%20the%20stars-%20arya.mp3?dl=0",
-      // },
-      // {
-      //   path: "https://dl.dropboxusercontent.com/s/monw1ona0cwrrfy/yt1s.com%20-%20Staring%20at%20the%20Sea.mp3?dl=0",
-      // },
-      // {
-      //   path: "https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/tracks/sleepy/sleepy_16.mp3",
-      // },
-      // {
-      //   path: "https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/tracks/sleepy/sleepy_17.mp3",
-      // },
+      {
+        path: "https://dl.dropboxusercontent.com/s/dzwd6p0i4xpyltz/Gerardo%20Mill%C3%A1n%20-%20a%20long%20trip%20LLR.mp3?dl=0",
+      },
+      {
+        path: "https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/tracks/sleepy/sleepy_2.mp3",
+      },
+      {
+        path: "https://dl.dropboxusercontent.com/s/j3q762jkr6yjttv/Steve%20Nguyen%2C%20Mildred%20-%20Nocturnal%20%28Audio%29.mp3?dl=0",
+      },
+      {
+        path: "https://dl.dropboxusercontent.com/s/4uh0n2b5qncxi3n/Peace%20-%20Nosmo%2C%20Kioshi%20%28Purity%20Label%29.mp3?dl=0",
+      },
+      {
+        path: "https://dl.dropboxusercontent.com/s/ro87pkxpgphy9cy/TheAsianOnes%20-%20Lost.mp3?dl=0",
+      },
+      {
+        path: "https://dl.dropboxusercontent.com/s/3bykoob8z86dn0m/among%20the%20stars-%20arya.mp3?dl=0",
+      },
+      {
+        path: "https://dl.dropboxusercontent.com/s/monw1ona0cwrrfy/yt1s.com%20-%20Staring%20at%20the%20Sea.mp3?dl=0",
+      },
+      {
+        path: "https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/tracks/sleepy/sleepy_16.mp3",
+      },
+      {
+        path: "https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/tracks/sleepy/sleepy_17.mp3",
+      },
     ],
     chill: [
       {
@@ -173,27 +173,27 @@ const lofiMusic = {
         path: "./resources/music/chill3.mp3",
         image: "null",
       },
-      // {
-      //   path: "https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/tracks/chill/chill_20.mp3",
-      // },
-      // {
-      //   path: "https://dl.dropboxusercontent.com/s/tekpv6wv73i33cg/%285%29%20This%20Cant%20Be%20The%20End.mp3?dl=0",
-      // },
-      // {
-      //   path: "https://dl.dropboxusercontent.com/s/6b10td2wrs7m3be/Approaching%20Fall.mp3?dl=0",
-      // },
-      // {
-      //   path: "https://dl.dropboxusercontent.com/s/qbe3woags717kwo/Sxul%20-%20Closer%20To%20You%20%281%29.mp3?dl=0",
-      // },
-      // {
-      //   path: "https://dl.dropboxusercontent.com/s/hpsfndkl4bga40f/a-new-sunset%20%281%29.mp3?dl=0",
-      // },
-      // {
-      //   path: "https://dl.dropboxusercontent.com/s/raqav1o1175qscu/Linearwave%20-%20Calm.mp3?dl=0",
-      // },
-      // {
-      //   path: "https://dl.dropboxusercontent.com/s/h7ptgueu6q19w8r/Chilliax%20-%20Beyond.mp3?dl=0",
-      // },
+      {
+        path: "https://s3.us-east-2.amazonaws.com/lofi.co/lofi.co/tracks/chill/chill_20.mp3",
+      },
+      {
+        path: "https://dl.dropboxusercontent.com/s/tekpv6wv73i33cg/%285%29%20This%20Cant%20Be%20The%20End.mp3?dl=0",
+      },
+      {
+        path: "https://dl.dropboxusercontent.com/s/6b10td2wrs7m3be/Approaching%20Fall.mp3?dl=0",
+      },
+      {
+        path: "https://dl.dropboxusercontent.com/s/qbe3woags717kwo/Sxul%20-%20Closer%20To%20You%20%281%29.mp3?dl=0",
+      },
+      {
+        path: "https://dl.dropboxusercontent.com/s/hpsfndkl4bga40f/a-new-sunset%20%281%29.mp3?dl=0",
+      },
+      {
+        path: "https://dl.dropboxusercontent.com/s/raqav1o1175qscu/Linearwave%20-%20Calm.mp3?dl=0",
+      },
+      {
+        path: "https://dl.dropboxusercontent.com/s/h7ptgueu6q19w8r/Chilliax%20-%20Beyond.mp3?dl=0",
+      },
     ],
   },
   videoBackgrounds: {
@@ -456,8 +456,9 @@ const lofiMusic = {
     });
   },
   loadCurrentSong: function () {
-    console.log(this.currentSong.path);
-    audio.src = this.currentSong.path;
+    if (this.currentSong.path) {
+      audio.src = this.currentSong.path;
+    }
   },
   loadCurrentBg: function () {
     dayVideo.src = this.weatherMode[0].path;
