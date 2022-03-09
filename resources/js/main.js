@@ -4,8 +4,8 @@ import { createStorage } from "./globalFunction.js";
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-const STORAGE_KEY = "USER";
-const config = createStorage(STORAGE_KEY);
+// const STORAGE_KEY = "USER";
+// const config = createStorage(STORAGE_KEY);
 
 const element = document.documentElement;
 const audio = $("#audio");
@@ -286,17 +286,17 @@ const lofiMusic = {
         if (e.target.closest(".jazz-mood")) {
           _this.currentMood = "jazz";
           e.target.closest(".jazz-mood").classList.add("active");
-          config.set("currentMood", _this.currentMood);
+          // config.set("currentMood", _this.currentMood);
         }
         if (e.target.closest(".sleep-mood")) {
           _this.currentMood = "sleep";
           e.target.closest(".sleep-mood").classList.add("active");
-          config.set("currentMood", _this.currentMood);
+          // config.set("currentMood", _this.currentMood);
         }
         if (e.target.closest(".chill-mood")) {
           _this.currentMood = "chill";
           e.target.closest(".chill-mood").classList.add("active");
-          config.set("currentMood", _this.currentMood);
+          // config.set("currentMood", _this.currentMood);
         }
         _this.currentIndex = 0;
         _this.renderSong();
@@ -444,20 +444,20 @@ const lofiMusic = {
     });
   },
   // Define Function
-  loadConfig() {
-    this.currentMood = config.get("currentMood");
-    this.currentIndex = 0;
-    const listMoodBtn = $$(".style__item__icon");
-    listMoodBtn.forEach((btn) => {
-      btn.classList.remove("active");
-      if (btn.dataset.mood === this.currentMood) {
-        btn.classList.add("active");
-      }
-    });
-  },
+  // loadConfig() {
+  //   this.currentMood = config.get("currentMood");
+  //   this.currentIndex = 0;
+  //   const listMoodBtn = $$(".style__item__icon");
+  //   listMoodBtn.forEach((btn) => {
+  //     btn.classList.remove("active");
+  //     if (btn.dataset.mood === this.currentMood) {
+  //       btn.classList.add("active");
+  //     }
+  //   });
+  // },
   loadCurrentSong: function () {
-    if (this.currentSong.path) {
-      audio.src = this.currentSong.path;
+    if (lofiMusic.currentSong.path) {
+      audio.src = lofiMusic.currentSong.path;
     }
   },
   loadCurrentBg: function () {
@@ -502,7 +502,7 @@ const lofiMusic = {
   },
   start: function () {
     this.defineProperties();
-    this.loadConfig();
+    // this.loadConfig();
     this.renderBg();
     this.renderSong();
     this.handleEvents();
