@@ -456,6 +456,7 @@ const lofiMusic = {
     });
   },
   loadCurrentSong: function () {
+    console.log(this.currentSong.path);
     audio.src = this.currentSong.path;
   },
   loadCurrentBg: function () {
