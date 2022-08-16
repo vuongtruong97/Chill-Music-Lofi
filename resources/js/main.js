@@ -512,5 +512,5 @@ window.onload = function () {
   lofiMusic.start();
   modalManual.start();
   modalContact.start();
-  modalShareEvent();
+  modalShareEvent.call(this);
 };
